@@ -10,13 +10,13 @@ class JTData:
         with open(os.path.join(os.path.dirname(__file__), "jt_mqtt.yaml"), "r", encoding="utf-8") as f:
             self.data = yaml.safe_load(f)
             for entry in self.data:
+                if "expire_after" not in entry:
+                    entry["expire_after"] = 180
                 if "unique_id" not in entry:
                     # required for mapping to a device
                     entry["unique_id"] = entry["object_id"]
                 if "platform" not in entry:
                     entry["platform"] = "mqtt"
-                if "expire_after" not in entry:
-                    entry["expire_after"] = 180
                 if "state_topic" not in entry:
                     entry["state_topic"] = f"Juntek-Monitor/{entry['unique_id']}"
                 if "device" not in entry:
