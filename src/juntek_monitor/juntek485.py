@@ -33,7 +33,7 @@ class SerialDevice(Device):
         self.jtdata.jt_batt_v = int(values[2]) / 100
         self.jtdata.jt_current = int(values[3]) / 100
         self.jtdata.jt_soc = math.ceil(int(values[4]) / self.options.battery_capacity) / 10
-        self.jtdata.jt_ah_remaining = int(values[4]) / 1000
+        self.jtdata.jt_wh_remaining = int(int(values[2]) * int(values[4]) / 100) / 1000
         # remaining capacity=values[5] is not used
         self.jtdata.jt_acc_cap = math.ceil(int(values[6]) / 1000) / 100
         self.jtdata.jt_sec_running = int(values[7])

@@ -37,7 +37,7 @@ class TestSerialDeviceCallback(unittest.TestCase):
                 ("Juntek-Monitor/jt_watts", 41.12),
                 ("Juntek-Monitor/jt_batt_charging", "Charging"),
                 ("Juntek-Monitor/jt_soc", 99.2),
-                ("Juntek-Monitor/jt_ah_remaining", 297.385),
+                ("Juntek-Monitor/jt_wh_remaining", 3967.115),
                 ("Juntek-Monitor/jt_acc_cap", 7.4),
                 ("Juntek-Monitor/jt_sec_remaining", 3426),
                 ("Juntek-Monitor/jt_temp", 23),

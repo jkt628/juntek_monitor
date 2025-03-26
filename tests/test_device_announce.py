@@ -63,8 +63,8 @@ class TestDeviceAnnounce(unittest.TestCase):
                     retain=True,
                 ),
                 call(
-                    "homeassistant/sensor/jt_ah_remaining/config",
-                    '{"name":"Ah Remaining","object_id":"jt_ah_remaining","device_class":"energy","unit_of_measurement":"Ah","expire_after":3600,"unique_id":"jt_ah_remaining","platform":"mqtt","state_topic":"Juntek-Monitor/jt_ah_remaining","device":{"name":"Juntek Monitor","identifiers":"BTG065"}}',
+                    "homeassistant/sensor/jt_wh_remaining/config",
+                    '{"name":"Wh Remaining","object_id":"jt_wh_remaining","device_class":"energy","unit_of_measurement":"Wh","expire_after":3600,"unique_id":"jt_wh_remaining","platform":"mqtt","state_topic":"Juntek-Monitor/jt_wh_remaining","device":{"name":"Juntek Monitor","identifiers":"BTG065"}}',
                     retain=True,
                 ),
                 call(
@@ -79,7 +79,7 @@ class TestDeviceAnnounce(unittest.TestCase):
                 ),
                 call(
                     "homeassistant/sensor/jt_temp/config",
-                    '{"name":"Temperature","object_id":"jt_temp","device_class":"temperature","unit_of_measurement":"C","expire_after":86400,"unique_id":"jt_temp","platform":"mqtt","state_topic":"Juntek-Monitor/jt_temp","device":{"name":"Juntek Monitor","identifiers":"BTG065"}}',
+                    '{"name":"Temperature","object_id":"jt_temp","device_class":"temperature","unit_of_measurement":"\\u00b0C","expire_after":86400,"unique_id":"jt_temp","platform":"mqtt","state_topic":"Juntek-Monitor/jt_temp","device":{"name":"Juntek Monitor","identifiers":"BTG065"}}',
                     retain=True,
                 ),
                 call(

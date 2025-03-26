@@ -1,6 +1,6 @@
 [project]
 name = "juntek_monitor"
-version = "0.2.0"
+version = "0.3.0"
 description = "Publish to MQTT from Juntek / Junctek / Koolertron Battery Monitor (KG KF series)"
 authors = [
     {name = "AnalogThinker and Jack Thomasson", email = "4302889+jkt628@users.noreply.github.com"},

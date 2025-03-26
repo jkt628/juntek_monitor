@@ -98,7 +98,7 @@ class BTDevice(Device):
         "C0": Parameter("jt_batt_v", Divide(100)),
         "C1": Parameter("jt_current", Divide(100)),
         "D1": Parameter("jt_batt_charging", Charging()),
-        "D2": Parameter("jt_ah_remaining", Divide(1000)),
+        "D2": Parameter("ah_remaining", Operator()),
         "D3": Parameter("discharge", Divide(100000)),
         "D4": Parameter("jt_acc_cap", Divide(100000)),
         "D5": Parameter("jt_sec_running", Operator()),
@@ -154,9 +154,11 @@ class BTDevice(Device):
             else:
                 i -= 1
 
-        if self.jtdata.jt_ah_remaining is not None:
-            self.jtdata.jt_soc = int(1000 * self.jtdata.jt_ah_remaining / self.options.battery_capacity) / 10.0
-            # in my experience, 'discharging' always appears with 'jt_ah_remaining'
+        if "ah_remaining" in self.jtdata.__dict__:
+            self.jtdata.jt_soc = int(self.jtdata.ah_remaining / self.options.battery_capacity) / 10.0
+            if self.jtdata.jt_batt_v is not None:
+                self.jtdata.jt_wh_remaining = int(self.jtdata.jt_batt_v * self.jtdata.ah_remaining) / 1000
+            # in my experience, 'discharging' always appears with 'ah_remaining'
             self.jtdata.jt_batt_charging = Charging().apply(not hasattr(self.jtdata, "discharge"))
 
         self.publish()
